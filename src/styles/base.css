@@ -1,0 +1,112 @@
+@import "normalize.css";
+
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+}
+html {
+  font-family: system-ui, sans-serif;
+  background: #13151a;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+main {
+  width: 800px;
+  margin: 0 auto;
+  max-width: calc(100vw - 2rem);
+  display: grid;
+  align-content: center;
+}
+
+nav {
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  padding: 2rem 0;
+  color: hsl(0 0% 100%);
+  list-style-type: none;
+  gap: 1rem;
+}
+
+nav li {
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: hsl(0 0% 100%);
+  text-decoration: none;
+}
+
+nav a:is(:hover, :focus-visible) {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-thickness: 0.5rem;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.navbar__content {
+  width: 800px;
+  max-width: calc(100vw - 2rem);
+  margin: 0 auto;
+}
+
+:is(h1) {
+  font-size: clamp(2rem, 5vw + 1rem, 12rem);
+  color: hsl(0 0% 100%);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@supports (view-transition-name: cool) {
+  ::view-transition-group(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    z-index: -2;
+  }
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 2;
+  }
+  ::view-transition-new(root) {
+    z-index: -1;
+  }
+  ::view-transition-group(line-0),
+  ::view-transition-group(line-1),
+  ::view-transition-group(line-2),
+  ::view-transition-group(line-3),
+  ::view-transition-group(line-4) {
+    animation: none;
+    z-index: 3;
+    mix-blend-mode: normal;
+  }
+}
