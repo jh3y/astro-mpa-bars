@@ -3,11 +3,11 @@ import { getPageContent, onLinkNavigate, transitionHelper } from "../scripts/vie
 const LINE_COUNT = 5
 const STAGGER_STEP = 150
 const STOPOVER = 200
-const WIPE_SPEED = 400
+const WIPE_SPEED = 300
 
 onLinkNavigate(async ({ toPath, isBack }: { toPath: string, isBack: boolean }) => {
   const LINES: HTMLDivElement[] = []
-  const content = await getPageContent(toPath)
+  let content = await getPageContent(toPath)
   // Create line elements for the transition
   for (let l = 0; l < LINE_COUNT; l++) {
     const LINE = Object.assign(document.createElement('div'), {

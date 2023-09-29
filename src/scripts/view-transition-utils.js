@@ -4,6 +4,7 @@ export async function getPageContent(url) {
   const response = await fetch(url);
   const text = await response.text();
   // Particularly as it uses regexp
+  return text
   return /<body[^>]*>([\w\W]*)<\/body>/.exec(text)[1];
 }
 
